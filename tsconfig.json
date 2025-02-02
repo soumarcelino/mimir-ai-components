@@ -2,18 +2,24 @@
   "compilerOptions": {
     "outDir": "dist",
     "declaration": true,
-    "declarationDir": "dist/types",
     "emitDeclarationOnly": false,
     "jsx": "react-jsx",
-    "module": "ESNext",
     "moduleResolution": "node",
-    "target": "ESNext",
-    "lib": ["DOM", "ESNext"],
+    "types": ["react"],
+    "target": "ES2017",
+    "module": "esnext",
+    "lib": ["ESNext", "dom"],
     "skipLibCheck": true,
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist", "storybook-static"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "storybook-static",
+    "**/*.stories.ts",
+    "**/*.stories.tsx"
+  ]
 }

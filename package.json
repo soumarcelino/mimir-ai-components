@@ -40,17 +40,22 @@
     "react-dom": "^18.2.0"
   },
   "scripts": {
+    "build:esm": "tsc --project tsconfig.esm.json",
+    "build": "rm -rf dist && yarn build:esm",
     "storybook": "storybook dev -p 6006",
-    "build": "tsc",
     "build-storybook": "storybook build",
     "format": "prettier --write --parser typescript '**/*.{ts,tsx}'",
     "lint": "eslint . --ext .ts,.tsx --ignore-path .gitignore --fix"
   },
   "type": "module",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "types": "./dist/types/index.d.ts"
+  },
   "files": [
-    "/dist"
+    "dist",
+    "!src/**/*.{stories,test,spec}.t{s,sx}"
   ]
 }
