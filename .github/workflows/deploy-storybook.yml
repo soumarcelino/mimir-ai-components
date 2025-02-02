@@ -32,3 +32,4 @@ jobs:
         with:
           branch: gh-pages
           folder: storybook-static
+          token: ${{ secrets.NODE_AUTH_TOKEN }}
