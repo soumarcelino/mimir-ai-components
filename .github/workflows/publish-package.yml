@@ -9,19 +9,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write # Permissão necessária para commitar
       packages: write
     steps:
       - uses: actions/checkout@v4
-      # Setup .npmrc file to publish to GitHub Packages
+        with:
+          fetch-depth: 0 # Garantir que o histórico completo seja obtido
+
       - uses: actions/setup-node@v4
         with:
           node-version: "20.x"
           registry-url: "https://npm.pkg.github.com"
           scope: "@soumarcelino"
+
       - run: yarn
       - run: yarn build
       - run: yarn version --patch --no-git-tag-version
+
+      - name: Commit new version
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add package.json
+          git commit -m "chore: bump version"
+          git push
+
       - run: yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
