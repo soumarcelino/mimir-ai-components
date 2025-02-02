@@ -1,7 +1,10 @@
 {
-  "name": "mimir-ai-components",
+  "name": "soumarcelino/mimir-ai-components",
   "version": "1.0.0",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/soumarcelino"
+  },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
     "@storybook/addon-essentials": "^8.5.3",
