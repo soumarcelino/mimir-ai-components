@@ -1,6 +1,6 @@
 {
   "name": "@soumarcelino/mimir-ai-components",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
