@@ -15,8 +15,8 @@ jobs:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
           scope: "soumarcelino"
-      - run: yarn install
-      - run: yarn build
-      - run: yarn publish --verbose
+      - run: npm install
+      - run: npm build
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
