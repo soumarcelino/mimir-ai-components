@@ -1,0 +1,34 @@
+name: Deploy Storybook
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Instalar dependências
+        run: yarn install --frozen-lockfile
+
+      - name: Gerar o Storybook
+        run: yarn build-storybook -o storybook-static
+
+      - name: Deploy para o GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: storybook-static
