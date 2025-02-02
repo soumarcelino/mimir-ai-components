@@ -54,8 +54,9 @@ pnpm-debug.log*
 # Local files
 *.local
 
-# Optional npm cache directory
+# Optional npm files
 .npm
+.npmrc
 
 # Optional eslint cache
 .eslintcache

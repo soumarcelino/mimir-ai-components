@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "license": "MIT",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/soumarcelino"
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soumarcelino/mimir-ai-components"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
